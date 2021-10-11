@@ -1,4 +1,6 @@
 <?php 
+require_once('models/product.php');
+
 if(!empty($_POST))
 {
   $title       = $_POST['title'];
@@ -15,7 +17,10 @@ if(!empty($_POST))
     <?php
   }
 }
-$data = $db->query('SELECT * FROM product');
 $gym = $db->query('SELECT * FROM gym');
+
+$product = new \models\product();
+$data = $product->getData();
+
 
 include('views/product.view.php');

@@ -31,7 +31,7 @@
     </form>
   </div>
   
-  <?php if(!empty($data->num_rows)):?>
+  <?php if(!empty($data)):?>
     <h5>Data Product</h5>
     <table class="table table-hovered">
       <thead>
@@ -41,14 +41,14 @@
         <th>DESCRIPTION</th>
       </thead>
       <tbody>
-        <?php while($row = $data->fetch_assoc()):?>
+        <?php foreach($data AS $key => $value):?>
           <tr>
-            <td><?php echo $row['id'] ?></td>
-            <td><?php echo $row['title'] ?></td>
-            <td><?php echo $row['price'] ?></td>
-            <td><?php echo $row['description'] ?></td>
+            <td><?php echo $value['id'] ?></td>
+            <td><?php echo $value['title'] ?></td>
+            <td><?php echo $value['price'] ?></td>
+            <td><?php echo $value['description'] ?></td>
           </tr>
-        <?php endwhile?>
+        <?php endforeach?>
       </tbody>
     </table>
   <?php endif?>
