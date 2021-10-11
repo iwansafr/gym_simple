@@ -1,23 +1,3 @@
-<?php 
-if(!empty($_POST))
-{
-  $title       = $_POST['title'];
-  $gym_id      = $_POST['gym_id'];
-  $description = $_POST['description'];
-  $price       = $_POST['price'];
-
-  if($db->query("INSERT INTO product (`title`, `gym_id`,`description`, `price`) VALUES('$title',$gym_id,'$description',$price)"))
-  {
-    ?>
-    <div class="alert alert-success">
-      Data Berhasil disimpan
-    </div>
-    <?php
-  }
-}
-$data = $db->query('SELECT * FROM product');
-$gym = $db->query('SELECT * FROM gym');
-?>
 <?php if(!empty($gym->num_rows)):?>
   <div class="card card-default mt-3 mb-3">
     <form action="" method="post">

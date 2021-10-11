@@ -12,24 +12,7 @@
     <?php require_once('navbar.php') ?>
     <?php if(!empty($_GET['page'])):?>
       <?php 
-      switch($_GET['page'])
-      {
-        case 'gym':
-            require_once('gym.php');
-        break;
-        case 'product':
-            require_once('product.php');
-        break;
-        default:
-          ?>
-          <div class="text-center border-top mt-3">
-            <div class="alert alert-danger">
-              Page tidak dikenali
-            </div>
-          </div>
-          <?php
-        break;
-      }
+      require_once('route.php')
       ?>
     <?php endif?>
   </div>
