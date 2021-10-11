@@ -1,5 +1,4 @@
 <?php 
-$db = new db();
 if(!empty($_POST))
 {
   $title       = $_POST['title'];
