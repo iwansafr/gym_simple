@@ -1,27 +1,27 @@
 <?php 
 require_once('models/product.php');
 require_once('models/gym.php');
+$gym     = new \models\gym();
+$product = new \models\product();
 
 if(!empty($_POST))
 {
-  $title       = $_POST['title'];
-  $gym_id      = $_POST['gym_id'];
-  $description = $_POST['description'];
-  $price       = $_POST['price'];
+  $product->title       = $_POST['title'];
+  $product->gym_id      = $_POST['gym_id'];
+  $product->description = $_POST['description'];
+  $product->price       = $_POST['price'];
 
-  if($db->query("INSERT INTO product (`title`, `gym_id`,`description`, `price`) VALUES('$title',$gym_id,'$description',$price)"))
+  if($product->save())
   {
     ?>
     <div class="alert alert-success">
-      Data Berhasil disimpan
+      Data Berhasil disimpan <?php echo $product->id ?>
     </div>
     <?php
   }
 }
-$gym = new \models\gym();
 $gym_options = $gym->getData();
-$product = new \models\product();
-$data = $product->getData();
+$data        = $product->getData();
 
 
 include('views/product.view.php');
