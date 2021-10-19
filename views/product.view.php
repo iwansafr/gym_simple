@@ -1,4 +1,4 @@
-<?php if(!empty($gym->num_rows)):?>
+<?php if(!empty($gym_options)):?>
   <div class="card card-default mt-3 mb-3">
     <form action="" method="post">
       <div class="card-header">Tambah Product</div>
@@ -10,9 +10,9 @@
         <div class="form-group">
           <label for="">Gym</label>
           <select name="gym_id" id="" class="form-control">
-            <?php while($rows = $gym->fetch_assoc()):?>
-              <option value="<?php echo $rows['id'] ?>"><?php echo $rows['title'] ?></option>
-            <?php endwhile?>
+            <?php foreach($gym_options AS $key => $value):?>
+              <option value="<?php echo $value['id'] ?>"><?php echo $value['title'] ?></option>
+            <?php endforeach?>
           </select>
         </div>
         <div class="form-group">

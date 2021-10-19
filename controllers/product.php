@@ -1,5 +1,6 @@
 <?php 
 require_once('models/product.php');
+require_once('models/gym.php');
 
 if(!empty($_POST))
 {
@@ -17,8 +18,8 @@ if(!empty($_POST))
     <?php
   }
 }
-$gym = $db->query('SELECT * FROM gym');
-
+$gym = new \models\gym();
+$gym_options = $gym->getData();
 $product = new \models\product();
 $data = $product->getData();
 
